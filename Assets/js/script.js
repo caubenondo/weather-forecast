@@ -24,8 +24,8 @@ fetch(url).then(res=>res.json()).then((data)=>{
     fiveDaysDisplay.innerHTML = '<h3>5Days</h3>'
 })
 
-// let key='e5caa6719d474edb19611194ae96a441';
-// fetch('https://api.openweathermap.org/data/2.5/onecall?q=san-diego&exclude=minutely,hourly&appid='+key).then(res=>res.json()).then((data)=>{
+let key='e5caa6719d474edb19611194ae96a441';
+fetch('https://api.openweathermap.org/data/2.5/forecast?q=san%20diego&appid='+key).then(res=>res.json()).then((data)=>{
 
-//     console.log(data)
-// })
+    console.log(data)
+})
