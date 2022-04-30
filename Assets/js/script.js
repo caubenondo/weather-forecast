@@ -163,7 +163,7 @@ async function displayWeather(cityObj) {
             fiveDaysDisplay.innerHTML = forecastHTML;
 
             for (let i = 1; i <= 6; i++) {
-                const myChart = new Chart(
+                const myChart = await new Chart(
                     document.querySelector(`#tempDay-${i}`).getContext("2d"), {
                         type: "line",
                         data: temps[i - 1],
