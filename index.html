@@ -4,7 +4,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bootstrap Site</title>
+  <title>Weather Dashboarh</title>
+  <link rel="shortcut icon" href="./Assets/img/HD.ico" type="image/x-icon">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
     integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
     
@@ -15,18 +16,18 @@
   <div class="container-fluid text-center p-4 bg-primary text-light">
     <h1>Weather Dashboard</h1>
   </div>
-  <div class="container-lg">
+  <div class="container-xl">
     <div class="row">
-      <div id="search-form" class="col-12 col-md-3 p-4 ">
-        <div class="mb-3 form-inline">
+      <div  class="col-12 col-md-3 p-4 ">
+        <form id="search-form" class="mb-3 form-inline">
           <label for="" class="form-label">
-            <h2>Search for a City</h2>
+            <h3><i class="fa-solid fa-magnifying-glass"></i> City</h3>
           </label>
           <input type="text" class="form-control" name="" id="search-input" aria-describedby="helpId"
-            placeholder="San Diego, CA">
-          <small id="helpId" class="form-text text-muted">State (optional)</small> <br>
-          <button class="btn btn-primary btn-block" id="search-button">Search</button>
-        </div>
+            placeholder="San Diego">
+          <small id="helpId" class="form-text text-muted">State (opt.) e.g. California </small> <br>
+          <button type='submit' class="btn btn-primary btn-block" id="search-button">Search</button>
+        </form>
         <hr>
         <div id="search-result"></div>
         <hr>
