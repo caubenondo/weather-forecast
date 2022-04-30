@@ -78,7 +78,7 @@ async function displayWeather(cityObj) {
                 </h3>
                 <h6 class="card-subtitle mb-2 text-muted"></h6>
                 <div class='row'>
-                    <div class='col-md-4'><img class='card-img-top' src="http://openweathermap.org/img/wn/${data.current.weather[0].icon}@4x.png" class="rounded-circle card-img-top" alt="weather today"></div>
+                    <div class='col-md-4'><img class='card-img-top' src="https://openweathermap.org/img/wn/${data.current.weather[0].icon}@4x.png" class="rounded-circle card-img-top" alt="weather today"></div>
                     <div class='col-md-4 align-self-center'>
                     <p><i class="fa-solid fa-temperature-full"></i> ${data.current.temp} *F</p>
                     <p><i class="fa-solid fa-wind"></i> ${data.current.wind_speed} MPH</p>
@@ -135,7 +135,7 @@ async function displayWeather(cityObj) {
 
                 forecastHTML += `
             <div class="card col-md-4">
-                <img class="card-img-top" src="http://openweathermap.org/img/wn/${dayForecast.weather[0].icon}@4x.png" alt="weather image">
+                <img class="card-img-top" src="https://openweathermap.org/img/wn/${dayForecast.weather[0].icon}@4x.png" alt="weather image">
                 <div class="card-body">
                 <h4 class="card-title">${moment(dayForecast.dt, "X").format("ddd MM/DD/YY")}</h4>
                 <p>Temp: ${dayForecast.temp.day} *F</p>
