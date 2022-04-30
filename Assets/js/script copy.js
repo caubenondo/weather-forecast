@@ -68,6 +68,7 @@ async function displayWeather(cityObj) {
         .then((res) => res.json())
         .then((data) => {
             console.log(data);
+
             let templateHTML = `
                 <div class="card row">
                     <div class="card-body">
@@ -87,7 +88,7 @@ async function displayWeather(cityObj) {
                             <p><i class="fa-solid  fa-sun text-warning"></i> ${moment(data.current.sunrise, "X").format("h:mma")}</p>
                             <p><i class="fa-solid fa-sun text-info"></i> ${moment(data.current.sunset, "X").format("h:mma")}</p>
                             </div>
-                            
+                            <canvas id='hourly'></canvas>
                         </div>                
                     </div>
                 </div>
@@ -97,6 +98,9 @@ async function displayWeather(cityObj) {
             let temps = [];
             for (let i = 1; i <= 6; i++) {
                 const dayForecast = data.daily[i];
+
+
+
                 forecastHTML += `<div class='col-md-4 p-1' >
                                 <div class="card  p-0 ${dayForecast.temp.day>90?'border-danger':dayForecast.temp.day>70?'border-warning':dayForecast.temp.day>40?'border-success':dayForecast.temp.day>20?'border-info':'border-primrary'}">
                                     <div class='card-header text-center bg-white'>
@@ -118,17 +122,59 @@ async function displayWeather(cityObj) {
                                         <p><i class="fa-solid  fa-sun text-warning"></i> ${moment(dayForecast.sunrise, "X").format("h:mma")}</p>
                                         <p><i class="fa-solid fa-sun text-info"></i> ${moment(dayForecast.sunset, "X").format("h:mma")}</p>
                                         </div>
-                                        
+                                        <canvas class='col-12' id='tempDay-${i}'></canvas>
                                     </div>
                                 </div>
-                            </div>
+                                </div>
                             `;
-            
+
+                const temp = {
+                    labels: ["morn", "day", "eve", "night"],
+                    datasets: [{
+                            label: "Temp",
+                            borderColor: "rgb(60,186,159)",
+                            backgroundColor: "rgb(60,186,159,0.1)",
+                            borderWidth: 2,
+                            data: [
+                                dayForecast.temp.morn,
+                                dayForecast.temp.day,
+                                dayForecast.temp.eve,
+                                dayForecast.temp.night,
+                            ],
+                        },
+                        {
+                            label: "Feel like",
+                            borderColor: "red",
+                            backgroundColor: "rgb(160,186,159,0.1)",
+                            borderWidth: 2,
+                            data: [
+                                dayForecast.feels_like.morn,
+                                dayForecast.feels_like.day,
+                                dayForecast.feels_like.eve,
+                                dayForecast.feels_like.night,
+                            ],
+                        },
+                    ],
+                };
+                temps.push(temp);
             }
 
             forecastHTML += `</div>`;
             fiveDaysDisplay.innerHTML = forecastHTML;
-   
+
+            for (let i = 1; i <= 6; i++) {
+                const myChart = await new Chart(
+                    document.querySelector(`#tempDay-${i}`).getContext("2d"), {
+                        type: "line",
+                        data: temps[i - 1],
+                        options: {
+                            responsive: true,
+                        },
+                    }
+                );
+            }
+
+        
     });
 }
 
