@@ -3,7 +3,7 @@ const mainCityDisplay = document.querySelector(".mainCityDisplay");
 const fiveDaysDisplay = document.querySelector(".fiveDaysDisplay");
 const baseWeather = "https://api.openweathermap.org/data/2.5/weather?";
 const daKey = "&appid=" + k;
-const geocoding = "http://api.openweathermap.org/geo/1.0/direct?";
+const geocoding = "https://api.openweathermap.org/geo/1.0/direct?";
 const oneCall = "https://api.openweathermap.org/data/2.5/onecall?";
 let citySearch = "san diego";
 const history = document.querySelector("#history");
