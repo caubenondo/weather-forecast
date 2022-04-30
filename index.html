@@ -1,25 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Bootstrap Site</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
-<link rel="stylesheet" href="./Assets/css/style.css">
-</head>
-<body>
-<div class="container">
-    <div class="mainCityDisplay"></div>
-    <div class="fiveDaysDisplay"></div>  
-
-
-</div>
-
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
+    integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
     
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>
-<script src="./Assets/js/moment.js"></script>
-<script src="./Assets/js/script.js"></script>
+  <link rel="stylesheet" href="./Assets/css/style.css">
+</head>
+
+<body>
+  <div class="container-fluid text-center p-4 bg-primary text-light">
+    <h1>Weather Dashboard</h1>
+  </div>
+  <div class="container-fluid">
+    <div class="row">
+      <div id="search-form" class="col-12 col-md-3 p-4 ">
+        <div class="mb-3 form-inline">
+          <label for="" class="form-label">
+            <h2>Search for a City</h2>
+          </label>
+          <input type="text" class="form-control" name="" id="search-input" aria-describedby="helpId"
+            placeholder="San Diego, CA">
+          <small id="helpId" class="form-text text-muted">State (optional)</small> <br>
+          <button class="btn btn-primary btn-block" id="search-button">Search</button>
+        </div>
+        <hr>
+        <div id="search-result"></div>
+        <hr>
+
+        <div class="text-center row mb-2">
+          <div class="col-8"><h4>History</h4></div>
+          <div class="col-4"><button id='clear-btn' class="btn btn-outline-danger"><i class="fa-solid fa-trash-can btn-outline-danger"></i></button></div>
+        </div>
+        <div id="history"></div>
+      </div>
+      <div class="col-12 col-md-9 p-4">
+        <p class="h1"><span class="cityLabel"></span></p>
+        <div class="mainCityDisplay mb-5"></div>
+        <h2><span class="forecastLabel"></span></h2>
+        <div class="fiveDaysDisplay"></div>
+      </div>
+
+    </div>
+
+
+  </div>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+  </script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"
+    integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous">
+  </script>
+  <script src="./Assets/js/moment.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js"></script>
+  <script src="https://kit.fontawesome.com/4b9b68d775.js" crossorigin="anonymous"></script>
+  <script src="./Assets/js/script.js"></script>
 
 </body>
+
 </html>
