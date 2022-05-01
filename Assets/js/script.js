@@ -80,9 +80,9 @@ async function displayWeather(cityObj) {
         oneCall +
         `lat=${cityObj.lat}&lon=${cityObj.lon}&exclude=minutely,hourly&units=imperial&` +
         daKey;
-    cityLabel.textContent = `${cityObj.name}, ${!!cityObj.state ? cityObj.state + "," : ""
+    cityLabel.innerHTML = `<i class="fa-solid fa-mountain-city text-primary"></i>  ${cityObj.name}, ${!!cityObj.state ? cityObj.state + "," : ""
         } ${cityObj.country}`;
-    forecastLabel.textContent = "6-Day Forecast";
+    forecastLabel.innerHTML = `<i class="fa-solid fa-chart-simple text-primary"></i>  ${cityObj.name} in the next 6 days`;
   
     // fetch data with city lat and lon
     await fetch(searchURI)
@@ -126,22 +126,19 @@ async function displayWeather(cityObj) {
                 forecastHTML += `<div class='col-md-6 col-lg-4 p-1' >
                                 <div class="card h-100  p-0 ${dayForecast.temp.day>85?'border-danger':dayForecast.temp.day>70?'border-warning':dayForecast.temp.day>40?'border-success':dayForecast.temp.day>20?'border-info':'border-primrary'}">
                                     <div class='card-header text-center bg-white'>
-                                        <div class='row align-items-center'>
-                                            
+                                        <div class='row align-items-center'>                                         
                                             <div class='col-8 text-left'>
                                                 <h3 class="card-title col-12">${moment(dayForecast.dt, "X").format("dddd")}</h3>
-                                                <p class='h5 text-muted'>${moment(dayForecast.dt, "X").format("DD-MM-YYYY")}</p>
-                                                <p class='h6 text-muted'>${dayForecast.weather[0].main} - ${dayForecast.weather[0].description}</p>
+                                                <p class='h5 text-muted'>${moment(dayForecast.dt, "X").format("DD-MM-YYYY")}</p>             
                                             </div>    
                                             <div class='col-4'>
-                                                <img class="img-fluid" src="https://openweathermap.org/img/wn/${dayForecast.weather[0].icon}@2x.png" alt="weather image">
-                                            </div>    
-                                        </div>
-                                        
+                                                <img class="img-fluid" src="https://openweathermap.org/img/wn/${dayForecast.weather[0].icon}@4x.png" alt="weather image">
+                                            </div>
+                                            <div class='col-12 text-left'><p class='h6 text-muted'>${dayForecast.weather[0].main} - ${dayForecast.weather[0].description}</p></div> 
+                                        </div>              
                                     </div>
                                     <div class="card-body row px-4">
-                                        <div class='col-12'>
-                                            
+                                        <div class='col-12'>                                           
                                         </div>
                                         <div class='col-6 col-md-12 col-lg-6'>
                                             <p><i class="fa-solid fa-temperature-full ${dayForecast.temp.day>85?'text-danger':dayForecast.temp.day>70?'text-warning':dayForecast.temp.day>40?'text-success':dayForecast.temp.day>20?'text-info':'text-primrary'}"></i> ${dayForecast.temp.day} <span>&#176;</span>F</p>
@@ -152,8 +149,7 @@ async function displayWeather(cityObj) {
                                             <p><i class="fa-solid fa-radiation ${dayForecast.uvi>=8?'text-danger':dayForecast.uvi>=5?'text-warning':dayForecast.uvi>=3?'text-info':'text-success'}"></i> ${dayForecast.uvi}</p>
                                             <p><i class="fa-solid  fa-sun text-warning"></i> ${moment(dayForecast.sunrise, "X").format("h:mma")}</p>
                                             <p><i class="fa-solid fa-sun text-info"></i> ${moment(dayForecast.sunset, "X").format("h:mma")}</p>
-                                        </div>
-                                        
+                                        </div>                                    
                                     </div>
                                 </div>
                             </div>
@@ -162,8 +158,7 @@ async function displayWeather(cityObj) {
             }
             //close and rennder the forecast section
             forecastHTML += `</div>`;
-            fiveDaysDisplay.innerHTML = forecastHTML;
-   
+            fiveDaysDisplay.innerHTML = forecastHTML;  
     });
 }
 

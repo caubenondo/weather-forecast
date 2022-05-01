@@ -3,6 +3,8 @@
 
 <head>
   <meta charset="UTF-8">
+  <meta name="keywords" content="Weather HTML CSS Javascript">
+  <meta name="author" content="Hai Duong">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Weather Dashboard</title>
   <link rel="shortcut icon" href="./Assets/img/HD.ico" type="image/x-icon">
@@ -12,17 +14,17 @@
   <link rel="stylesheet" href="./Assets/css/style.css">
 </head>
 
-<body>
+<body >
   <!-- header -->
   <div class="container-fluid text-center p-4 bg-primary text-light mb-4">
     <h1>Weather Dashboard</h1>
     <p><span class="text-warning">© 2022 Hai Duong</span></p>
   </div>
   <!-- Main Content -->
-  <div class="container-xxl">
+  <div class="container-xxl" >
     <div class="row">
       <!-- Search FORM and History -->
-      <div class="col-12 col-md-3">    
+      <div class="col-12 col-md-3">
         <form id="search-form" class="mb-3 form-inline">
           <label for="search-input" class="form-label ">
             <h3><i class="fa-solid fa-magnifying-glass"></i> City</h3>
@@ -37,7 +39,7 @@
         <hr>
         <div class="row mb-2">
           <div class="col-8">
-            <h4>History</h4>
+            <h4>Quick Access</h4>
           </div>
           <div class="col-4 text-right"><button id='clear-btn' class="btn btn-outline-danger"><i
                 class="fa-solid fa-trash-can btn-outline-danger"></i></button></div>
@@ -48,17 +50,23 @@
       <!-- Weather OUTPUT -->
       <div class="col-12 col-md-9">
         <!-- Current weather -->
-        <p class="h2"> <i class="fa-solid fa-mountain-city text-primary"></i> <span class="cityLabel"></span> </i></p>
-        <div class="mainCityDisplay mb-5"></div>
+        <p class="h2"> <span class="cityLabel"></span> </i></p>
+        <div class="mainCityDisplay mb-5">
+          <h2>Weather search by city</h2>
+          <h5>Steps:</h5>
+          <ol>
+            <li>Type in the city's name as input</li>
+            <li>(Optional)Type in city's state (full)</li>
+            <li>Select a city from search result</li>
+          </ol>
+          <p class="text-muted">The selected city will be saved into your history panel for quick access.</p>
+        </div>
 
         <!-- Forecast -->
-        <h2><i class="fa-solid fa-chart-simple text-primary"></i> <span class="forecastLabel"></span> </h2>
+        <h4><span class="forecastLabel"></span> </h4>
         <div class="fiveDaysDisplay mb-5"></div>
       </div>
-
     </div>
-
-
   </div>
 
 
