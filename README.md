@@ -13,7 +13,7 @@ It is powered by Use the [OpenWeather One Call API](https://openweathermap.org/a
 - Select a city from search result
 `The selected city will be saved into your quick access panel for future use.`
 
-#### Framework and API
+#### Frameworks and API
 - Bootstrap 5
 - Font-Awesome
 - Moment JS
